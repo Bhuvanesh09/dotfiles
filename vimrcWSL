@@ -18,6 +18,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'davidhalter/jedi-vim'
+Plug 'kassio/neoterm'
 "Plug 'xolox/vim-easytags'
 
 "Plug 'vim-pandoc/vim-pandoc'
@@ -45,6 +49,7 @@ set relativenumber
 set scrolloff=30
 set encoding=UTF-8
 "set termguicolors "If you want true colors in the terminal(some colorschemes)
+set colorcolumn=81
 
 "set t_te=[H[2J
 colorscheme molokai
@@ -54,6 +59,8 @@ colorscheme molokai
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <Leader><Leader>d :r! date "+\%A \%R, \%d \%b \%y"<CR>
+nnoremap <Leader>t :Ttoggle resize=70<CR> 
+tnoremap <Leader>t <C-W>:Ttoggle<CR>
 
 "To make Enter key select the current completion when the popup window is open
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
@@ -64,4 +71,5 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 "
 let g:vim_markdown_folding_disabled = 1
 let g:mkdp_browser = 'wsl-open'
+let g:neoterm_default_mod = 'vertical rightbelow'
 "OPTION SETTINGS END
