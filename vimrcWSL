@@ -5,6 +5,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'preservim/nerdtree'  
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 "Plug 'valloric/youcompleteme'
 "Plug 'vim-erlang/vim-erlang-omnicomplete'
@@ -17,10 +18,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'davidhalter/jedi-vim'
+"Plug 'plasticboy/vim-markdown'
+"Plug 'rust-lang/rust.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'wincent/command-t'
+"Plug 'racer-rust/vim-racer'
+"Plug 'davidhalter/jedi-vim'
 Plug 'kassio/neoterm'
 "Plug 'xolox/vim-easytags'
 
@@ -44,23 +47,34 @@ set smarttab
 set tabstop=4
 set number 
 "set mouse=a
+set guicursor=
+set hidden
 set title
 set relativenumber
 set scrolloff=30
 set encoding=UTF-8
 "set termguicolors "If you want true colors in the terminal(some colorschemes)
 set colorcolumn=81
+set wildignore+=*/softwares/*
 
 "set t_te=[H[2J
 colorscheme molokai
 "VARIABLES END
 
 "REMAPS BEGIN
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-t> :bn<CR>
+tnoremap <C-t> <C-W>:bn<CR>
+nnoremap <Leader>t :NERDTreeToggle<CR>
 nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <Leader><Leader>d :r! date "+\%A \%R, \%d \%b \%y"<CR>
+nnoremap <Leader><Leader>u :set nonu norelativenumber<CR>
+nnoremap <Leader><Leader>n :set nu relativenumber<CR>
 nnoremap <Leader>t :Ttoggle resize=70<CR> 
 tnoremap <Leader>t <C-W>:Ttoggle<CR>
+tnoremap <Leader>q <C-W>:q!<CR>
+nmap s <Plug>(easymotion-s2)
+xmap s <Plug>(easymotion-s2)
+omap z <Plug>(easymotion-s2)
 
 "To make Enter key select the current completion when the popup window is open
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>" 
@@ -69,7 +83,15 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "OPTION SETTINGS BEGIN
 "
-let g:vim_markdown_folding_disabled = 1
+"let g:vim_markdown_folding_disabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:mkdp_browser = 'wsl-open'
 let g:neoterm_default_mod = 'vertical rightbelow'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = "\uE0b8"
+let g:airline_right_sep = "\uE0ba"
+let g:airline#extensions#tabline#left_sep = "\ue0bc"
+let g:airline#extensions#tabline#right_sep = "\ue0be"
+let g:airline_theme='dark'
+"let g:ctrlp_clear_cache_on_exit = 0
 "OPTION SETTINGS END
