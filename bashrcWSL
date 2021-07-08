@@ -91,12 +91,30 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias d='du -had 1 | sort -hr'
 alias cpgo="cd /mnt/e/cp_noob/200/"
+alias list="vim /mnt/e/cp_noob/lc/list.md"
 alias go="cd /mnt/e/"
 alias pr="cd /mnt/e/ProteinLigand/"
 alias jn="jupyter notebook --no-browser"
+alias jl="jupyter lab --no-browser"
 alias ada="ssh -X bhuvanesh.s@ada.iiit.ac.in"
 alias aba="ssh -X bhuvanesh.s@abacus.iiit.ac.in"
+alias dsgo="cd /mnt/e/Sem3.2/DS/project/"
+
+#ALIASES for Protein Project:
+alias makeFile='conda activate amber && python /mnt/e/ProteinLigand/protein_ligand_preparation/protein_split.py'
+alias prepLigand='conda activate amber && bash /mnt/e/ProteinLigand/protocol/prepLigand.sh'
+alias checkMissing='vmd -dispdev text -e /mnt/e/ProteinLigand/protocol/missing.tcl -args '
+alias renameRes='conda activate amber && python /mnt/e/ProteinLigand/current/Bhuvnesh_scripts/new_scripts/protein_ligand_preparation/rename_residue.py'
+alias occu='conda activate amber && python /mnt/e/ProteinLigand/protocol/occupancy.py'
+alias spl='python /mnt/e/ProteinLigand/protocol/splitter.py'
+alias tl='conda activate amber && tleap -s -f tleap.in'
+alias ante='conda activate amber && bash /mnt/e/ProteinLigand/protein_ligand_preparation/antechamber.sh'
+alias remWat='conda activate amber && python /mnt/e/ProteinLigand/protocol/remove_h.py'
+alias model='conda activate amber && python /mnt/e/ProteinLigand/protocol/ModellingScript.py'
+alias addh='conda activate amber && python /mnt/e/ProteinLigand/current/bable_script.py'
+alias proto='conda activate amber && python /mnt/e/ProteinLigand/current/Bhuvnesh_scripts/automate.py' 
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -152,8 +170,8 @@ LS_COLORS=$LS_COLORS':ow=36;01'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#export PS1="\W >"
 source "$HOME/.cargo/env"
 
 #export PATH="/home/bhuvanesh/.cargo/bin:/home/bhuvanesh/.nvm/versions/node/v14.16.0/bin:/home/bhuvanesh/softwares/miniconda3/bin:/home/bhuvanesh/softwares/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/mnt/e/Softwares/Microsoft VS Code/bin:/snap/bin"
 
-export PATH="$PATH:/mnt/e/Softwares/Microsoft VS Code/bin"

@@ -7,6 +7,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
+Plug 'townk/vim-autoclose'
 "Plug 'valloric/youcompleteme'
 "Plug 'vim-erlang/vim-erlang-omnicomplete'
 Plug 'easymotion/vim-easymotion'
@@ -16,6 +17,8 @@ Plug 'tpope/vim-fugitive'
 
 "This helps in the live preview. Currently set to <Leader>mp
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'SidOfc/mkdx'
+
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 "Plug 'plasticboy/vim-markdown'
@@ -25,14 +28,28 @@ Plug 'godlygeek/tabular'
 "Plug 'racer-rust/vim-racer'
 "Plug 'davidhalter/jedi-vim'
 Plug 'kassio/neoterm'
+
 "Plug 'xolox/vim-easytags'
 
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug 'vim-pandoc/vim-pandoc-syntax'
+"
+"FUZZY MATCHER
+"
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 
 "TAB VIM INS-COMPLETION
 Plug 'ajh17/vimcompletesme'
+
+"UNDO TREE
+Plug 'mbbill/undotree'
+
+"WEB DEV THINGS
+"Plug 'mattn/emmet-vim'
+"Plug 'pangloss/vim-javascript'
+"Plug 'jelera/vim-javascript-syntax'
 
 call plug#end()
 "PLUGIN ##################################3
@@ -44,8 +61,11 @@ set autoindent
 set expandtab
 set shiftwidth=4
 set smarttab
+set list
+set listchars=tab:>-
 set tabstop=4
 set number 
+set hlsearch
 "set mouse=a
 set guicursor=
 set hidden
@@ -62,16 +82,21 @@ colorscheme molokai
 "VARIABLES END
 
 "REMAPS BEGIN
-nnoremap <C-t> :bn<CR>
-tnoremap <C-t> <C-W>:bn<CR>
-nnoremap <Leader>t :NERDTreeToggle<CR>
+nnoremap <C-k> :bn<CR>
+nnoremap <C-j> :bp<CR>
+tnoremap <C-k> <C-W>:bn<CR>
+tnoremap <C-j> <C-W>:bp<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <Leader>b :Buffers<CR>
+nnoremap <F5> :UndotreeToggle<CR> 
+nnoremap <Leader>f :NERDTreeToggle<CR>
 nnoremap <Leader>mp :MarkdownPreview<CR>
 nnoremap <Leader><Leader>d :r! date "+\%A \%R, \%d \%b \%y"<CR>
 nnoremap <Leader><Leader>u :set nonu norelativenumber<CR>
 nnoremap <Leader><Leader>n :set nu relativenumber<CR>
 nnoremap <Leader>t :Ttoggle resize=70<CR> 
 tnoremap <Leader>t <C-W>:Ttoggle<CR>
-tnoremap <Leader>q <C-W>:q!<CR>
+tnoremap <Leader>q <C-W>:bd!<CR>
 nmap s <Plug>(easymotion-s2)
 xmap s <Plug>(easymotion-s2)
 omap z <Plug>(easymotion-s2)
